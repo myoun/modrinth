@@ -1,6 +1,6 @@
 <script lang="ts">
     import SearchResult from '../lib/SearchResult.svelte';
-    import type { Project } from '../share';
+    import type { SimpleProject } from '../share';
     import { querystring } from 'svelte-spa-router';
     import SearchBar from '../lib/SearchBar.svelte';
     $: query = new URLSearchParams($querystring)
@@ -13,7 +13,7 @@
         .then((res) => {
             return res.json()
         }).then((res) => {
-            result = res.hits as Array<Project>;
+            result = res.hits as Array<SimpleProject>;
             console.log(res)
         })
     

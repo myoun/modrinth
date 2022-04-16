@@ -1,18 +1,22 @@
 <script lang="ts">
     import SearchBar from '../lib/SearchBar.svelte';
     import logo from '../assets/logo.svg'
-    import type { Project } from '../share';
+    import type { SimpleProject } from '../share';
     import SearchResult from '../lib/SearchResult.svelte';
+    import { push } from 'svelte-spa-router';
 
     
-    let result: Array<Project> = []
+    if (!location.pathname.includes("#")) {
+        location.href = location.origin+"/#"+location.pathname
+    }
+
+    let result: Array<SimpleProject> = []
 
     fetch(`https://api.modrinth.com/v2/search`)
         .then((res) => {
             return res.json()
         }).then((res) => {
-            result = res.hits as Array<Project>;
-            console.log(res)
+            result = res.hits as Array<SimpleProject>;
         })
 </script>  
 

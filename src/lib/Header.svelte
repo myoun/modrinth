@@ -4,7 +4,8 @@
 </script>  
 
 <main id="header">
-    <a href="/"><img src="{logo}" alt="logo"></a>
+    <a use:link href="/"><img src="{logo}" alt="logo"></a>
+
 </main>
 
 <style>
@@ -12,6 +13,9 @@
         padding: 1rem;
         border: 1px solid whitesmoke;
         border-radius: 0.5rem;
+        width: 100%;
+        height: 10%;
+        background-color: #282c34;
     }
 
     #header img {

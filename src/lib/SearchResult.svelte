@@ -1,10 +1,11 @@
 <script lang="ts">
-    import type { Project } from "../share";
-    export let project: Project;
+    import type { SimpleProject } from "../share";
+    import { link, push } from 'svelte-spa-router';
+    export let project: SimpleProject;
 </script>
 
 <main>
-    <a href={`https://modrinth.com/mod/${project.slug}`} class="result-anchor">
+    <a use:link href={`/project/${project.slug}`} class="result-anchor">
         <div class="border">
             <img src={project.icon_url} alt={project.slug+" icon"}>
             <h5>{project.title}</h5>
